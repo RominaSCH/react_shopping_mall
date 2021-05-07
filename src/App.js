@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Nav, Jumbotron, Button } from "react-bootstrap";
 
-function App() {
+function App() {//각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
   return (
     <div className="App">
 
