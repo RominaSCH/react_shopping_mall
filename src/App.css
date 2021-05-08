@@ -16,12 +16,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 30px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: baseline;
   text-align: center;
 }
 .item > img{
-  width: 300px;
+  width: 400px;
   /* max-width: 100%; */
   height: auto;
   /* width: 350px;

@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import ITEM from "./data.js";
 
 function App() {//각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
-  // let [items, mItems] = useState([]);
+  let [items, mItems] = useState(ITEM);
 
 
   return (
@@ -43,22 +43,39 @@ function App() {//각 사진 사이즈 같게 하면서 화면 사이즈 변경�
         </p>
       </Jumbotron>
 
-
-    <div className="wrapper">
-      
+      <Items items={items} />
+    {/* <div className="wrapper">
           {
             ITEM.map( (element, i) => {
               return (
                 <div className="item">
-                  <img src={ITEM[i].img} />
-                  <h4 className="item__title">{ITEM[i].title}</h4>
-                  <p>{ITEM[i].price}</p>
+                  <img src={items[i].img} />
+                  <h4 className="item__title">{items[i].title}</h4>
+                  <p>{items[i].price}</p>
                 </div>
               );
             })
           }
-    </div>
+    </div> */}
 
+    </div>
+  );
+}
+
+function Items(props){
+  return (
+    <div className="wrapper">
+          {
+            ITEM.map( (element, i) => {
+              return (
+                <div className="item" key={i}>
+                  <img src={props.items[i].img} alt={props.items[i].title}/>
+                  <h4 className="item__title">{props.items[i].title}</h4>
+                  <p>{props.items[i].price}</p>
+                </div>
+              );
+            })
+          }
     </div>
   );
 }

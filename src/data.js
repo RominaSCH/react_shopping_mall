@@ -19,6 +19,13 @@ let ITEM = [
         content:"Watercolor palette",
         price:"5,000₩",
         img:"https://rawmaterials.b-cdn.net/catimg/mz92-wp3018b_x.jpg"
+    },
+    {
+        id:3,
+        title:"Mijello Watercolor",
+        content:"Korean Watercolor",
+        price:"88,000₩",
+        img:"https://m.media-amazon.com/images/I/71-vHUoqLiL._AC_.jpg"
     }
 ];
 
