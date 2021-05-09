@@ -100,3 +100,22 @@
 .order_Btn{
   background-color: tomato;
 }
+a, a:visited{
+  color: #000;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+.item__img > img{
+  width: 500px;
+  height: auto;
+}
+.item__info{
+  margin-top: 20px;
+  text-align: center;
+}
