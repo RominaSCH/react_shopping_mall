@@ -1,19 +1,18 @@
 import "./App.css";
 import { Nav, Jumbotron, Button } from "react-bootstrap";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ITEM from "./data.js";
+import { Link, Route, Switch } from "react-router-dom";
 
-function App() {//각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
+function App() {
+  //각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
   let [items, mItems] = useState(ITEM);
-
 
   return (
     <div className="App">
-      
-
-      <Nav fill variant="tabs" defaultActiveKey="/home">
+      <Nav className="navigation" fill variant="tabs" defaultActiveKey="/home">
         <Nav.Item>
-          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link href="/watercolor" eventKey="watercolor">
@@ -32,50 +31,62 @@ function App() {//각 사진 사이즈 같게 하면서 화면 사이즈 변경�
         </Nav.Item>
       </Nav>
 
-      
-      <Jumbotron className="background">
-        <h1>Welcome!</h1>
-        <p>
-          We love analog art goods!
-        </p>
-        <p>
-          <Button variant="primary">Learn more</Button>
-        </p>
-      </Jumbotron>
+      <Route exact path="/">
+        <Jumbotron className="background">
+          <h1>Welcome!</h1>
+          <p>We love analog art goods!</p>
+          <p>
+            <Button variant="primary">Learn more</Button>
+          </p>
+        </Jumbotron>
 
-      <Items items={items} />
-    {/* <div className="wrapper">
-          {
-            ITEM.map( (element, i) => {
-              return (
-                <div className="item">
-                  <img src={items[i].img} />
-                  <h4 className="item__title">{items[i].title}</h4>
-                  <p>{items[i].price}</p>
-                </div>
-              );
-            })
-          }
-    </div> */}
+        <Items items={items} component={Items} />
+      </Route>
 
+      <Route path="/watercolor">
+          <DetailItem items={items} />
+      </Route>
+    </div>
+  );
+}
+//exact 는 /라는걸 다 갖고 있어도 /만 가진 애만 home page만 보여줌
+function Items(props) {
+  return (
+    <div className="wrapper">
+      {props.items.map((element, i) => {
+        return (
+          <div className="item" key={i}>
+            <img src={props.items[i].img} alt={props.items[i].title} />
+            <div className="item__info">
+              <h4 className="item__title">{props.items[i].title}</h4>
+              <p className="item__price">{props.items[i].price}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
-function Items(props){
+function DetailItem(props) {
   return (
-    <div className="wrapper">
-          {
-            ITEM.map( (element, i) => {
-              return (
-                <div className="item" key={i}>
-                  <img src={props.items[i].img} alt={props.items[i].title}/>
-                  <h4 className="item__title">{props.items[i].title}</h4>
-                  <p>{props.items[i].price}</p>
-                </div>
-              );
-            })
-          }
+    <div className="detail_items">
+      {props.items.map((e, i) => {
+        return (
+          <div className="detail_item">
+            <div className="detail__img">
+              <img src={props.items[i].img} alt={props.items[i].title} />
+            </div>
+            <div className="detail__info">
+              <h4>{props.items[i].title}</h4>
+              <p>{props.items[i].content}</p>
+              <p>{props.items[i].price}</p>
+              <button className="btn cart_Btn">Add to Cart</button>
+              <button className="btn order_Btn">Buy Now</button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
