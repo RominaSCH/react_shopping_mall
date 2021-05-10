@@ -100,9 +100,7 @@
 .order_Btn{
   background-color: tomato;
 }
-a, a:visited{
-  color: #000;
-}
+
 
 .item{
   display: flex;
@@ -118,4 +116,10 @@ a, a:visited{
 .item__info{
   margin-top: 20px;
   text-align: center;
+}
+
+a, a:visited, a:hover{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -15,24 +15,16 @@ function App() {
     <div className="App">
       <Nav className="navigation" fill variant="tabs" defaultActiveKey="/">
         <Nav.Item>
-          <Nav.Link eventKey="home">
-            <Link to="/">Home</Link>
-          </Nav.Link>
+          <Nav.Link eventKey="home" to="/" as={Link}>Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="watercolor">
-            <Link to="/watercolor">Watercolor</Link>
-          </Nav.Link>
+          <Nav.Link eventKey="watercolor" to="/watercolor" as={Link}>Watercolor</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="event">
-            <Link to="/event">Event</Link>
-          </Nav.Link>
+          <Nav.Link eventKey="event" to="/event" as={Link}>Event</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="about">
-            <Link to="/about">About</Link>
-          </Nav.Link>
+          <Nav.Link eventKey="about" to="/about" as={Link}>About</Nav.Link>
         </Nav.Item>
       </Nav>
 
@@ -68,13 +60,13 @@ function Items(props) {
     <div className="wrapper">
       {props.items.map((element, i) => {
         return (
-          <div className="item" key={i}>
-            <img src={props.items[i].img} alt={props.items[i].title} />
-            <div className="item__info">
-              <h4 className="item__title">{props.items[i].title}</h4>
-              <p className="item__price">{props.items[i].price}</p>
+            <div className="item" key={i}>
+              <img src={props.items[i].img} alt={props.items[i].title} />
+              <div className="item__info">
+                <h4 className="item__title">{props.items[i].title}</h4>
+                <p className="item__price">{props.items[i].price}</p>
+              </div>
             </div>
-          </div>
         );
       })}
     </div>
