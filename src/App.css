@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;500&display=swap');
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Girassol', cursive;
+  font-family: 'Roboto Slab', serif;
 }
 .background{
   background-image: url(/src/images/jumbo.jpg);
@@ -122,4 +122,19 @@ a, a:visited, a:hover{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.alert{
+  margin-top: 100px;
+  background-color: tomato;
+  color: #fff;
+  width: 350px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert > p {
+  font-size: 20px;
+  margin-bottom: 0;
 }
