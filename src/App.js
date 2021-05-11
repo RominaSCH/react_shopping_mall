@@ -6,6 +6,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Watercolor from "./Watercolor";
 import Detail from "./Detail";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 function App() {
   //각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
@@ -38,6 +39,17 @@ function App() {
         </Jumbotron>
 
         <Items items={items} component={Items} />
+
+        <button className="more-btn" onClick={ () => {
+          axios.get("https://codingapple1.github.io/shop/data2.json")
+          .then( (obj) => { 
+            <Items items={obj.data} />
+           } )
+          .catch( () => { 
+            console.log("failed")
+          } )
+
+        }}>See More</button>
       </Route>
 
       <Route path="/watercolor">
@@ -61,7 +73,7 @@ function Items(props) {
       {props.items.map((element, i) => {
         return (
             <div className="item" key={i}>
-              <img src={props.items[i].img} alt={props.items[i].title} />
+              {/* <img src={props.items[i].img} alt={props.items[i].title} /> */}
               <div className="item__info">
                 <h4 className="item__title">{props.items[i].title}</h4>
                 <p className="item__price">{props.items[i].price}</p>
