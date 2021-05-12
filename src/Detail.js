@@ -21,9 +21,9 @@ function Detail(props) {
         : null
       }
 
-      <input type="text" placeholder="Write something" 
+      {/* <input type="text" placeholder="Write something" 
       onChange={ (e) => { mInput(e.target.value) }} />
-      <p>{input}</p>
+      <p>{input}</p> */}
 
       <div className="item__img" >
         <img src={props.items[id].img} alt={props.items[id].title} />
@@ -33,10 +33,15 @@ function Detail(props) {
           <h3 className="item__title">{props.items[id].title}</h3>
           <p className="item__content">{props.items[id].content}</p>
           <p className="item__price">{props.items[id].price} KRW</p>
+          <p>stock : {props.stock[id]}</p>
         </div>
         <div className="order_btns">
           <button className="btn cart_Btn">Add to Cart</button>
-          <button className="btn order_Btn">Buy Now</button>
+          <button className="btn order_Btn" onClick={ () => {
+            let beStock = [...props.stock];
+            beStock[id] -= 1;
+            props.mStock(beStock);
+          }}>Buy Now</button>
         </div>
       </div>
 
