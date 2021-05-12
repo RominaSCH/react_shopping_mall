@@ -11,7 +11,7 @@ import axios from "axios";
 function App() {
   //각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
   let [items, mItems] = useState(ITEM);
-
+  let [loadItems, mLoadItems] = useState([]);
   return (
     <div className="App">
       <Nav className="navigation" fill variant="tabs" defaultActiveKey="/">
@@ -43,7 +43,9 @@ function App() {
         <button className="more-btn" onClick={ () => {
           axios.get("https://codingapple1.github.io/shop/data2.json")
           .then( (obj) => { 
-            <Items items={obj.data} />
+            mItems([...items , ...obj.data]) //답 보고 함, 난 왜 새 useState로 해도 안됐을까..?
+            console.log(items);
+            // <Items moreItems={loadItems} />
            } )
           .catch( () => { 
             console.log("failed")
@@ -73,7 +75,7 @@ function Items(props) {
       {props.items.map((element, i) => {
         return (
             <div className="item" key={i}>
-              {/* <img src={props.items[i].img} alt={props.items[i].title} /> */}
+              <img src={props.items[i].img} alt={props.items[i].title} />
               <div className="item__info">
                 <h4 className="item__title">{props.items[i].title}</h4>
                 <p className="item__price">{props.items[i].price}</p>
