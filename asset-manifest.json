@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react_shopping_mall/static/css/main.c1dc1725.chunk.css",
-    "main.js": "/react_shopping_mall/static/js/main.cc9ee0a1.chunk.js",
-    "main.js.map": "/react_shopping_mall/static/js/main.cc9ee0a1.chunk.js.map",
+    "main.js": "/react_shopping_mall/static/js/main.73af13ec.chunk.js",
+    "main.js.map": "/react_shopping_mall/static/js/main.73af13ec.chunk.js.map",
     "runtime-main.js": "/react_shopping_mall/static/js/runtime-main.7799d508.js",
     "runtime-main.js.map": "/react_shopping_mall/static/js/runtime-main.7799d508.js.map",
     "static/js/2.5c310850.chunk.js": "/react_shopping_mall/static/js/2.5c310850.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.7799d508.js",
     "static/js/2.5c310850.chunk.js",
     "static/css/main.c1dc1725.chunk.css",
-    "static/js/main.cc9ee0a1.chunk.js"
+    "static/js/main.73af13ec.chunk.js"
   ]
 }
