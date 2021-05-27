@@ -1,12 +1,17 @@
 import "./App.css";
 import { Nav, Jumbotron, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ITEM from "./data.js";
 import { Link, Route, Switch } from "react-router-dom";
 import Watercolor from "./Watercolor";
 import Detail from "./Detail";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
+export let stockContext = React.createContext();
+//하위 컴포넌트에 계속 props안쓰려고 context 문법을 씀
+//React.createContext()로 같은 변수값을 공유할 범위를 생성한다.
+//같은 값을 공유할 HTML을 범위로 싸매라
 
 function App() {
   //각 사진 사이즈 같게 하면서 화면 사이즈 변경에도 잘 적응하게 바꾸기
@@ -17,7 +22,7 @@ function App() {
     <div className="App">
       <Nav className="navigation" fill variant="tabs" defaultActiveKey="/">
         <Nav.Item>
-          <Nav.Link eventKey="home" to="/" as={Link}>
+          <Nav.Link eventKey="home" to="/react_shopping_mall/" as={Link}>
             Home
           </Nav.Link>
         </Nav.Item>
@@ -38,7 +43,10 @@ function App() {
         </Nav.Item>
       </Nav>
 
-      <Route exact path="/">
+      <stockContext.Provider value={stock} >
+        {/* 공유하고싶은 값은 꼭 value={변수명} 으로 써줘야한다*/}
+
+      <Route exact path="/react_shopping_mall/">
         <Jumbotron className="background">
           <h1>Welcome!</h1>
           <p>We love analog art goods!</p>
@@ -78,6 +86,8 @@ function App() {
         </button>
       </Route>
 
+      
+
       <Route path="/watercolor">
         <Watercolor items={items} />
       </Route>
@@ -85,6 +95,8 @@ function App() {
       <Route path="/detail/:id">
         <Detail items={items} stock={stock} mStock={mStock}/>
       </Route>
+
+      </stockContext.Provider>
 
       {/* <Route path="/:id">
         <div>아무거나 적었을 때 이걸 보여준다</div>

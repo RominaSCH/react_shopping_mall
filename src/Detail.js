@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import {stockContext} from "./App";
 
 function Detail(props) {
   let [alert, mAlert] = useState(true);
@@ -11,6 +12,8 @@ function Detail(props) {
     //opacity는 창이 존재하기때문에 화면상 위치를 계속 차지하는 단점이 있음.
   }, []);
   let { id } = useParams();
+  let stockCon = useContext(stockContext); //Context 좀 복잡하니까
+  //간단한건 props 쓰고, props 계속 하위하위 내려가서 성가실 때 쓰기.
   return (
     <div className="item">
       {
@@ -42,6 +45,7 @@ function Detail(props) {
             beStock[id] -= 1;
             props.mStock(beStock);
           }}>Buy Now</button>
+          {stockCon}
         </div>
       </div>
 
