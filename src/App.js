@@ -44,7 +44,7 @@ function App() {
       </Nav>
 
       <stockContext.Provider value={stock} >
-        {/* 공유하고싶은 값은 꼭 value={변수명} 으로 써줘야한다*/}
+        {/* 공유하고싶은 값은 꼭 value={변수명} 으로 써줘야한다 개명 ㄴㄴ*/}
 
       <Route exact path="/react_shopping_mall/">
         <Jumbotron className="background">
